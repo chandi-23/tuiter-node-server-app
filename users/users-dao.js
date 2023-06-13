@@ -17,7 +17,7 @@ export const findUserByUsername = (username) => {
  
  //console.log(index)
  //console.log(u.username)
- if (index !== -1) {console.log("user details:", users[index]);return users[index];}
+ if (index !== -1) {return users[index];}
 
  return null;
 };
