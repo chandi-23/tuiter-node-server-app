@@ -6,16 +6,19 @@ const AuthController = (app) => {
 //const profile  = (req, res) => { };
 //const logout   = (req, res) => { };
  const update   = (req, res) => { 
-    console.log("updating the first and the last name")
-    const user = usersDao.findUserByUsername(username);
-    if(user){
-        usersDao.updateUser(req.body)
+    //console.log("updating the first and the last name")
+    const user = req.body
+    const username = req.body.username;
+    //console.log(req.body)
+    const curr_user = usersDao.findUserByUsername(username);
+    if(curr_user){
+        usersDao.updateUser(req.body._id, user)
     }
     res.json(user)
  };
 
 const register = (req, res) => {
-    console.log("In Register")
+    //console.log("In Register")
     const username = req.body.username;
     const user = usersDao.findUserByUsername(username);
     if (user) {
@@ -24,11 +27,13 @@ const register = (req, res) => {
     }
     const newUser = usersDao.createUser(req.body);
     req.session["currentUser"] = newUser;
+    //console.log(newUser)
+    
     res.json(newUser);
   };
 
 const login = (req, res) => {
-    console.log("in the login")
+    //console.log("in the login")
     const username = req.body.username;
     const password = req.body.password;
     const user = usersDao.findUserByCredentials(username, password);
@@ -51,7 +56,7 @@ const login = (req, res) => {
 
 
   const logout = async (req, res) => {
-    console.log("destroying session")
+    //console.log("destroying session")
     req.session.destroy();
     res.sendStatus(200);
   };

@@ -13,28 +13,38 @@ export const findUserById = (uid) => {
 
 export const findUserByUsername = (username) => {
  const index = users.findIndex((u) => u.username === username);
- if (index !== -1) return users[index];
+ //console.log("findUserByUsername")
+ 
+ //console.log(index)
+ //console.log(u.username)
+ if (index !== -1) {console.log("user details:", users[index]);return users[index];}
+
  return null;
 };
 
 
 export const findUserByCredentials = (username, password) => {
- console.log(users)
+ //console.log(users)
  const index = users.findIndex((u) => u.username === username && u.password === password);
  if (index !== -1) return users[index];
  return null;
 };
 
 
-export const createUser = (user) => users.push(user);
+export const createUser = (user) => {users.push(user);return user}
 
 
 export const updateUser = (uid, user) => {
-    
+    //console.log("updating the user")
+
  const index = users.findIndex((u) => u._id === uid);
- console.log(users[index])
+ //console.log(index)
+ //console.log(users[index])
+ //console.log(user)
+ 
  users[index] = { ...users[index], ...user };
- console.log(users[index])
+ //console.log("after updating")
+ //console.log(users[index])
  return {status: 'ok'}
 };
 
