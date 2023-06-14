@@ -24,14 +24,14 @@ app.use(
 app.use(
     cors({
       credentials: true,
-      origin: "https://voluble-eclair-87f921.netlify.app",
+      origin: "https://dazzling-chebakia-328009.netlify.app",
       methods: ["GET", "POST","PUT","DELETE"]
     })
    );
    app.use(function (req, res, next) {
     res.header(
         "Access-Control-Allow-Origin",
-        "https://voluble-eclair-87f921.netlify.app"
+        "https://dazzling-chebakia-328009.netlify.app"
     );
     res.header(
         "Access-Control-Allow-Headers",
