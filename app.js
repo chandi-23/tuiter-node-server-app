@@ -24,14 +24,14 @@ app.use(
 app.use(
     cors({
       credentials: true,
-      origin: "https://dazzling-chebakia-328009.netlify.app",
+      origin: "https://moonlit-dodol-dbd9a2.netlify.app",
       methods: ["GET", "POST","PUT","DELETE"]
     })
    );
    app.use(function (req, res, next) {
     res.header(
         "Access-Control-Allow-Origin",
-        "https://dazzling-chebakia-328009.netlify.app"
+        "https://moonlit-dodol-dbd9a2.netlify.app"
     );
     res.header(
         "Access-Control-Allow-Headers",
