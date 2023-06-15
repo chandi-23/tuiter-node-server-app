@@ -6,6 +6,7 @@ import cors from "cors"
 import session from "express-session";
 import AuthController from "./users/auth-controller.js";
 import mongoose from "mongoose";
+import MongoStore from 'connect-mongo';
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/tuiter'
 
@@ -17,7 +18,8 @@ app.use(
     session({
       secret: "any string",
       resave: false,
-      saveUninitialized: true,
+      saveUninitialized: false,
+      store: MongoStore.create({ mongoUrl: CONNECTION_STRING }),
     })
    );
    
