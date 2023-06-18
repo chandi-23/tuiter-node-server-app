@@ -17,10 +17,15 @@ const app = express()
 app.use(
     session({
       secret: "any string",
-      resave: false,
+      resave: true,
       saveUninitialized: false,
       store: MongoStore.create({ mongoUrl: CONNECTION_STRING }),
+      cookie: {
+
+        sameSite:"none"
+      },
     })
+    
    );
    
 app.use(
