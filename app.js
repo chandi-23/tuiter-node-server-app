@@ -17,11 +17,12 @@ const app = express()
 app.use(
     session({
       secret: "any string",
-      resave: true,
+      resave: false,
+      proxy:true,
       saveUninitialized: false,
-      store: MongoStore.create({ mongoUrl: CONNECTION_STRING }),
+      //store: MongoStore.create({ mongoUrl: CONNECTION_STRING }),
       cookie: {
-
+        secure:true,
         sameSite:"none"
       },
     })
